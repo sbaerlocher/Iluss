@@ -1,0 +1,32 @@
+<header>
+
+	<div class="header">
+
+		<div id="site-title">
+
+			<koken:if data="settings.site_title_type" equals="text">
+				<h1 class="site">
+					<koken:link url="/" title="{{ site.title }}">{{ site.title }}</koken:link>
+				</h1>
+			<koken:else>
+				<koken:link to="front" title="{{ site.title }}"><img src="{{ settings.site_title_img_url }}" alt="{{ site.title }}" class="custom_logo"></koken:link>
+			</koken:if>
+
+			<koken:if true="settings.show_page"><h2 class="tag">/&nbsp;{{ labels.album.plural }}</h2></koken:if>
+
+			<koken:include file="inc/header-icons.html" />
+		
+		</div>
+
+		<nav class="nav-collapse">
+
+			<koken:navigation />
+
+		</nav>
+		
+		
+
+	</div>
+
+</header>
+

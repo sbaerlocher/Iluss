@@ -1,0 +1,152 @@
+<koken:if true="pjax">
+		
+<koken:else>
+
+<head><koken:include file="inc/head.html" />
+
+	<koken:asset file="lightbox.css" common="true" />
+
+	
+	<!-- enable HTML5 elements in IE7+8 -->
+	<!--[if IE]>
+		<koken:asset file="html5shiv.js" common="true" />
+	<![endif]-->
+</head>
+
+<body class="loading">
+
+	<div id="lbox">
+
+</koken:if>
+
+	<koken:load>
+
+		<koken:head>
+			<meta property="og:site_name" content="{{ site.title }}" />
+			<meta property="og:type" content="website" />
+			<meta property="og:url" content="{{ content.url }}" />
+			<meta property="og:title" content="{{ content.title | content.filename strip_html="true" }}" />
+			<meta property="og:description" content="{{ content.caption strip_html="true" }}" />
+			<meta property="og:image" content="{{ content.presets.medium_large.url }}" />
+			<meta property="og:image:width" content="{{ content.presets.medium_large.width }}" />
+			<meta property="og:image:height" content="{{ content.presets.medium_large.height }}" />
+			<koken:content_image>
+				<koken:not empty="profile.twitter">
+					<meta name="twitter:card" content="photo" />
+					<meta name="twitter:site" content="@{{ profile.twitter }}" />
+					<meta name="twitter:creator" content="@{{ profile.twitter }}" />
+				</koken:not>
+			</koken:content_image>
+
+		</koken:head>
+
+		<a href="#" title="Schliessen" id="lbox-bttn-close" class="ibutton"><i class="icon-remove-sign"></i></a>
+
+		<a href="#" title="Vollbild anzeigen" id="lbox-bttn-fs" class="ibutton"><i class="icon-fullscreen"></i></a>
+
+		<a href="#" title="Vollbild beenden" id="lbox-bttn-ns" class="ibutton"><i class="icon-resize-small"></i></a>
+
+		<koken:next>
+			<a href="#" id="lbox-bttn-play" class="ibutton">
+				<i class="icon-play icon-large"></i>
+			</a>
+		</koken:next>
+
+		<a href="#" id="lbox-bttn-pause" class="ibutton">
+			<i class="icon-pause icon-large"></i>
+		</a>
+
+		<div id="lnav" class="tnav">
+			<koken:previous>
+				<koken:link lightbox="true" bind_to_key="left">
+					<span class="ibutton"><i class="icon-angle-left"></i></span>
+				</koken:link>
+			</koken:previous>
+		</div>
+
+		<div id="main">
+
+			<div id="spinner">
+				<div class="spin">
+					<div class="bar1"></div>
+					<div class="bar2"></div>
+					<div class="bar3"></div>
+					<div class="bar4"></div>
+					<div class="bar5"></div>
+					<div class="bar6"></div>
+					<div class="bar7"></div>
+					<div class="bar8"></div>
+					<div class="bar9"></div>
+					<div class="bar10"></div>
+					<div class="bar11"></div>
+					<div class="bar12"></div>
+			    </div>
+			</div>
+
+			<div id="content">
+
+			<koken:parent>
+			<script>
+				window.albumId = {{ album.id }};
+			</script>
+			</koken:parent>
+
+			<script>
+				window.aspect = Number('{{ content.aspect_ratio }}');
+				window.contentId = {{ content.id }};
+				<koken:content_image>
+				window.videoFile = false;
+				window.presets = [
+					<koken:loop data="content.presets" separator=",">
+					{
+						url: '{{ url url_encode="true" }}',
+						hidpi_url: '{{ hidpi_url url_encode="true" }}',
+						width: {{ width }},
+						height: {{ height }}
+					}
+					</koken:loop>
+				];
+				</koken:content_image>
+				<koken:content_video>
+					window.videoFile = '{{ content.original.url }}';
+					window.presets = false;
+				</koken:content_video>
+			</script>
+
+			<div class="caption" style="display:none">
+				<strong>{{ content.caption }}</strong>
+<!-- 				&nbsp;
+				{{ content.caption }} -->
+			</div>
+			</div>
+
+		</div>
+
+		<div id="rnav" class="tnav">
+			<koken:next>
+				<koken:link lightbox="true" bind_to_key="right">
+					<span class="ibutton"><i class="icon-angle-right"></i></span>
+				</koken:link>
+			</koken:next>
+		</div>
+
+		<footer>
+			<koken:not empty="context.album"><koken:link data="content.url"> {{ content.title }} </koken:link> from Album <koken:link data="content.context.album">{{ content.context.album.title }}  </koken:link>, {{ content.context.position }} of {{ content.context.total }}</koken:not>
+		</footer>
+
+	</koken:load>
+
+<koken:if true="pjax">
+	<script>update();</script>
+<koken:else>
+
+	</div> <!-- close lbox -->
+
+	<koken:asset file="jquery.pjax.js" common="true" />
+	<koken:asset file="lightbox.js" common="true" />
+
+</body>
+
+</html>
+
+</koken:if>

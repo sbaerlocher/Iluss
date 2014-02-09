@@ -1,0 +1,20 @@
+<koken:include file="inc/head.html" />
+
+	<koken:include file="inc/header-albums.html" />
+
+	<koken:load>
+
+		<koken:include file="inc/albums.html" />
+
+		<koken:else>
+
+			<koken:note>
+
+				<p class="null"><strong>No albums found.</strong> Create some in the Library.</p>
+
+			</koken:note>
+
+	</koken:load>
+
+<koken:asset file="js/thumbs.js" />
+

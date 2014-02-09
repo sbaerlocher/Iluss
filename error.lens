@@ -1,0 +1,53 @@
+<koken:include file="inc/head.html" />
+
+<koken:include file="inc/header-error.html" />
+
+<div id="lane">
+
+<div id="album-intro" class="cell">
+
+	<div class="wrap">
+
+		<div class="content">
+		<h1>
+			Uh oh, {{ routed_variables.code }} 
+		</h1>	
+
+		<p>Ups you can't find pictures on this page. 
+		</p>
+
+		<div id="kdiscuss">
+
+		</div>
+
+		<koken:include file="inc/slogen.html" />
+
+		<a href="/" title="Head back home" class="button"><p>Head back home</p></a>.
+		
+		</div>
+	
+	</div>
+
+	<span class="caption">
+				
+	<koken:include file="inc/about.html" />					
+					
+	</span>
+
+
+
+</div>
+
+
+		<div class="cell">
+				<img src="/storage/themes/iluss/css/error.jpg" alt="Tanzmaus">
+				<span class="caption">
+					
+				</span>
+			
+		</div>
+
+
+</div>
+
+<koken:include file="inc/footer.html" />
