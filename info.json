@@ -1,6 +1,6 @@
 {
   "name": "iluss",
-  "version": "1.4",
+  "version": "1.5",
   "description": "iluss is a theme made by Simon Baerlocher for your own site in the quiet of a Continuous gallery.",
   "demo": "http://iluees.ch",
   "author": {
@@ -9,8 +9,8 @@
   },
 
   "navigation_groups": {
-    "essay_aside": {
-      "label": "Essay aside",
+    "more_links": {
+      "label": "More Links",
       "defaults": [
         "twitter", "facebook", "gplus"
       ]
@@ -611,7 +611,7 @@
     },
     "Intro": {
       "icon":"layout",
-      "scope": [ "album", "index", "favorites" ],
+      "scope": [ "album", "index", "favorites", "content" ],
       "settings": {
         "show_intro": {
             "label": "Intro",

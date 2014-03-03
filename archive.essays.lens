@@ -12,9 +12,36 @@
 			<meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
 		</koken:head>
 
+		<koken:variable name="list" value="true" />
+
 		<div id="text">
 
 			<div class="lcol">
+			
+				<div id="wrap">
+
+        			<div class="content">
+
+						<koken:if true="settings.essay_show_aside">
+
+							<koken:include file="inc/essay-aside.html" />
+
+						</koken:if>
+
+					</div>
+		
+			    </div>
+
+
+		    	<span class="caption">
+        
+        		<koken:include file="inc/about.html" />
+          
+      			</span>
+
+			</div>
+
+			<div class="rcol">
 
 				<koken:loop>
 
@@ -30,24 +57,16 @@
 
 			</div>
 
-			<div class="rcol">
-
-				<koken:if true="settings.essay_show_aside">
-
-					<koken:include file="inc/essay-aside.html" />
-
-				</koken:if>
-
-			</div>
-
 		</div>
 
 		<koken:else>
 
 			<koken:note>
+
 				<p class="null">
 					No essays found. Create some in Text.
 				</p>
+
 			</koken:note>
 
 	</koken:load>

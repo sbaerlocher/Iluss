@@ -42,7 +42,7 @@ h1 {
 h2 {
 	font-size:1.19em;
 	line-height:.1.41em;
-	margin:1.41em 0;
+	margin:0 0;
 	font-weight:400;
 }
 
@@ -339,40 +339,98 @@ span.caption {
 	padding:0;
 }
 
-/* Text
+/* Text & Timeline
 ================================================== */
 
-#text {
-	margin-left:14%;
-	margin-right:14%;
-	position:relative;
+#text,  #timeline  {
+	top:130px;
+	margin-left: auto;
+	margin-right: auto;
 	font-size: 1.1em;
+	position: relative;
 }
 
-#text article {
-	margin-bottom:32px;
+#text div.lcol, #timeline div.lcol {
+	float:left;
+	position: relative;
+		margin-right:[$thumb_spacing]px;
+}
+
+
+#text div.lcol, #timeline div.lcol {
+
+}
+
+#text div.lcol #wrap, #timeline div.lcol #wrap {
+	position: fixed;
 	background:$intro_background_color;
-	padding-left: 50px;
-	padding-right: 50px;
+	width:[$intro_width]px;
 	overflow:auto;
 	-webkit-box-shadow: 5px 8px 18px 8px rgba(50, 50, 50, 0.76);
 	-moz-box-shadow:    5px 8px 18px 8px rgba(50, 50, 50, 0.76);
 	box-shadow:         5px 8px 18px 8px rgba(50, 50, 50, 0.76);
 }
 
-#text div.lcol {
-	width:80%;
-	margin-right: 20px;
-	float:left;
-	-moz-box-sizing: border-box;
-    	-webkit-box-sizing: border-box;
-    	box-sizing: border-box;
+#text div.lcol #wrap .content, #timeline div.lcol #wrap .content {
+	padding-top:[$intro_pad_top]px;
+	padding-right:[$intro_pad_right]px;
+	padding-bottom:[$intro_pad_bot]px;
+	padding-left:[$intro_pad_left]px;
+
 }
 
-#text div.rcol {
-	width:180px;
-	float:right;
-	padding-top:12px;
+#timeline div.rcol h2, #text div.rcol  h2 {
+	background:$intro_background_color;
+	padding-top:[$intro_pad_top]px;
+	padding-right:[$intro_pad_right]px;
+	padding-bottom:[$intro_pad_bot]px;
+	padding-left:[$intro_pad_left]px;
+		-webkit-box-shadow: 5px 8px 18px 8px rgba(50, 50, 50, 0.76);
+	-moz-box-shadow:    5px 8px 18px 8px rgba(50, 50, 50, 0.76);
+	box-shadow:         5px 8px 18px 8px rgba(50, 50, 50, 0.76);
+
+}
+
+#timeline div.rcol  h3, #text div.rcol  h3 {
+
+}
+
+#timeline div.lcol p {
+	font-size:[$intro_desc_size]em;
+	line-height:[$intro_desc_lh];
+	color:$intro_desc_color;
+	margin:0 0 17px;
+	padding:0;
+}
+
+#timeline .content, #timeline .essay  {
+
+}
+
+#timeline .album, #timeline .album_update, #timeline .content, #timeline .essay {
+
+}
+
+#text article, #timeline article {
+	background:$intro_background_color;
+	width:840px;
+	padding-top:[$intro_pad_top]px;
+	padding-right:[$intro_pad_right]px;
+	padding-bottom:[$intro_pad_bot]px;
+	padding-left:[$intro_pad_left]px;
+	background:$intro_background_color;
+	overflow:auto;
+	-webkit-box-shadow: 5px 8px 18px 8px rgba(50, 50, 50, 0.76);
+	-moz-box-shadow:    5px 8px 18px 8px rgba(50, 50, 50, 0.76);
+	box-shadow:         5px 8px 18px 8px rgba(50, 50, 50, 0.76);
+	margin-bottom: 20px;
+	
+}
+
+#text div.rcol, #timeline div.rcol {
+	float:left;
+	position: relative;	
+
 }
 
 #text p.data strong {
@@ -404,38 +462,19 @@ span.caption {
 	font-style:italic;
 }
 
-aside {
-	font-size:.8em;
-	margin-bottom:20px;
-}
-
-aside h2 {
-	font-size:.94em;
-	text-transform:uppercase;
-	font-weight:600;
-}
-
-aside ul {
+div.lcol ul {
 	list-style:none;
 	margin:0;
 	padding:0;
 }
 
-aside ul li {
-	margin:0 0 10px;
+div.lcol ul li {
+	margin:0;
 	padding:0;
 }
 
 article .share_content {
 	display:inline-block;
-}
-
-article footer {
-	font-size:.8em;
-}
-
-article .share_button {
-	color:$link_color;
 }
 
 /* Pagination
@@ -699,20 +738,29 @@ footer a:link, footer a:visited, footer a:hover, footer a:active {
 	    	box-sizing: border-box;
 	}
 
-	#text {
+	#text, #timeline {
 		margin-left:0;
 		width:100%;
 	}
 
-	#text div.lcol {
+	#text div.rcol, #timeline div.rcol {
 		width:100%;
 		float:none;
 		margin:0;
-		padding:0 15px;
+		padding:0px;
 	}
 
-	#text div.rcol {
+	#text div.lcol, #timeline div.lcol {
 		display:none;
+	}
+
+	#text div.lcol #wrap, #timeline div.lcol #wrap {
+		width: 0px;
+	}
+
+	#text article, #timeline article {
+		width: 100%;
+		padding: 0px;
 	}
 
 	/* fit to viewport */

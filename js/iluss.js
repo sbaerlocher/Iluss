@@ -18,11 +18,23 @@ $(function() {
 		});
 	}
 
-	$('#albums').css({
-		top: ( $('header').css('display') === 'none' || $('header').css('visibility') === 'hidden' ) ? '0px' : $('header').height()+ 30 + 'px'
-	});
+	if ($( window ).width() < '600' ) {} else {
+		$('#timeline').css({
+			top: ( $('header').css('display') === 'none' || $('header').css('visibility') === 'hidden' ) ? '0px' : $('header').height()+ 30 + 'px',
+			width: $('div.rcol' ).width() + $('div.lcol').width() + 120 + 'px'
+		});
+	
+		$('#text').css({
+			top: ( $('header').css('display') === 'none' || $('header').css('visibility') === 'hidden' ) ? '0px' : $('header').height()+ 30 + 'px',
+			width: $('div.rcol' ).width() + $('#wrap').width() + 120 + 'px'
+		});
+	
+		$('#wrap').css({
+			top: ( $('header').css('display') === 'none' || $('header').css('visibility') === 'hidden' ) ? '0px' : $('header').height()+ 30 + 'px',
+		});
+	}
 
-	$('#text').css({
+	$('#albums').css({
 		top: ( $('header').css('display') === 'none' || $('header').css('visibility') === 'hidden' ) ? '0px' : $('header').height()+ 30 + 'px'
 	});
 

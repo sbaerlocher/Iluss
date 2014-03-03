@@ -28,6 +28,30 @@
 
 		<div class="lcol">
 
+	      	<div id="wrap">
+
+    	    	<div class="content">
+		
+					<koken:if true="settings.essay_show_aside">
+
+						<koken:include file="inc/essay-aside.html" />
+
+					</koken:if>
+			
+				</div>
+		
+			</div>
+
+			<span class="caption">
+        
+        		<koken:include file="inc/about.html" />
+          
+      		</span>
+
+      	</div>
+
+		<div class="rcol">
+
 			<article>
 
 				<koken:include file="inc/essay-article.html" />
@@ -48,15 +72,6 @@
 
 			</article>
 
-		</div>
-
-		<div class="rcol">
-
-			<koken:if true="settings.essay_show_aside">
-
-				<koken:include file="inc/essay-aside.html" />
-
-			</koken:if>
 
 		</div>
 

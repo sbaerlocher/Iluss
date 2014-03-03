@@ -1,3 +1,4 @@
+  <div class="essay">
 <h1>
 	<koken:link title="View {{ essay.title }}">{{ essay.title }}</koken:link>
 </h1><!--span class="entry-meta"><koken:time /><koken:link title="Permalink url link">Permalink</koken:link><koken:if true="list"><koken:discussion_count>&nbsp;&nbsp;/&nbsp;&nbsp;{{ discussion_count }}</koken:discussion_count></koken:if></span>-->
@@ -28,12 +29,12 @@
               </ul>
          </div>
         </div>
+        &nbsp;&nbsp;/&nbsp;&nbsp;
       </koken:if>
 
       <koken:if true="settings.essay_show_meta">
 
        	<koken:topics>
-          <div id="essay_topics">
             Topics:
             <koken:loop separator=", ">
               <koken:link title="View {{ album.title }}">
@@ -41,11 +42,9 @@
               </koken:link>
             </koken:loop>
             &nbsp;&nbsp;/&nbsp;&nbsp;
-          </div>
        	</koken:topics>
 
        	<koken:categories>
-          <div id="essay_categories">
             Categories:
             <koken:loop separator=", ">
               <koken:link title="View all {{ labels.essay.plural case='lower' }} in {{ category.title }}">
@@ -53,17 +52,16 @@
               </koken:link>
             </koken:loop>
             &nbsp;&nbsp;/&nbsp;&nbsp;
-          </div>
        	</koken:categories>
 
        	<koken:tags>
-          <div id="essay_tags">
+            Tags:
             <koken:loop separator="&nbsp;">
               <koken:link title="View all {{ labels.essay.plural case='lower' }} in {{ tag.title }}">
                 #{{ tag.title }}
               </koken:link>
             </koken:loop>
-          </div>
        	</koken:tags>
 
       </koken:if>
+</div>

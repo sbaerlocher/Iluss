@@ -29,17 +29,36 @@
 	<div id="text">
 
 		<div class="lcol">
+
+		    <div id="wrap">
+
+		        <div class="content">
+		
+					<h3>More links</h3>
+
+						<koken:navigation group="more_links" />
+		
+		        </div>
+
+	    	</div>
+      
+     		<span class="caption">
+        
+        		<koken:include file="inc/about.html" />
+          
+    		</span>
+
+		</div> <!-- close .lcol -->
+
+		<div class="rcol">
 		
 			<article>
+				
 			<h1>{{ page.title }}</h1>
 
 			{{ page.content }}
 
 			</article>
-
-		</div>
-
-		<div class="rcol">
 
 		</div>
 

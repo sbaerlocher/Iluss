@@ -1,0 +1,88 @@
+<koken:include file="inc/head.html" />
+
+  <koken:include file="inc/header-tag.html" />
+
+	<!-- Load this template's source data (category). Limit to 20 days. -->
+	<koken:load limit="20">
+
+		<!-- Add Facebook Open Graph tags for nicer sharing -->
+		<koken:head>
+			<meta property="og:site_name" content="{{ site.title }}" />
+			<meta property="og:title" content="{{ labels.category.plural }} / {{ category.title }}" />
+			<meta property="og:description" content="{{ site.description strip_html='true' }}" />
+			<meta property="og:type" content="website" />
+			<meta property="og:url" content="{{ location.site_url }}{{ location.here }}" />
+		</koken:head>
+
+		  <div id="timeline">
+
+		<div class="lcol">
+
+			<div id="wrap">
+
+	        <div class="content">
+
+			<!-- Display links to view all content by category -->
+			<koken:categories>
+				<h3>View everything by {{ labels.category.singular case="lower" }}</h3>
+				<koken:loop>
+					<koken:link title="View everything in {{ category.title }}">
+						{{ category.title }} ({{ category.counts.total }})
+					</koken:link>
+					<br>
+				</koken:loop>
+			</koken:categories>
+
+			<h3>More links</h3>
+				<koken:navigation group="more_links" />
+
+			</div>
+
+
+	    </div>
+      
+    	<span class="caption">
+        
+        	<koken:include file="inc/about.html" />
+          
+      	</span>
+			
+		</div> <!-- close .lcol -->
+
+		<div class="rcol">
+
+			<h2>{{ category.title }}</h2>
+
+			<!-- Loop over each item assigned the category -->
+			<koken:loop>
+
+				<article>
+
+					<!-- Render each event in the category -->
+					<koken:include file="inc/events.html" />
+
+				</article>
+
+			</koken:loop>
+
+			<!-- Display pagination links -->
+			<p>
+				<koken:include file="inc/pagination.html" />
+			</p>
+
+
+		</div> <!-- close .rcol -->
+
+	<!-- Fallback content if no data was loaded by koken:load -->
+	<koken:else>
+
+		<!-- Use koken:note to display this message in the Site editor only -->
+		<koken:note>
+			No category events found
+		</koken:note>
+
+	</koken:load>
+
+</div> <!-- close #content -->
+
+<koken:include file="inc/footer.html" />

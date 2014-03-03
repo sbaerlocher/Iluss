@@ -1,0 +1,111 @@
+<koken:include file="inc/head.html" />
+
+  <koken:include file="inc/header-timeline.html" />
+
+<koken:load>
+
+  <koken:head>
+    <meta property="og:site_name" content="{{ site.title }}" />
+    <meta property="og:title" content="{{ essay.title strip_html="true" }}" />
+    <meta property="og:description" content="{{ essay.excerpt strip_html="true" }}" />
+    <meta property="og:url" content="{{ essay.url }}" />
+    <meta property="og:type" content="article" />
+    <meta property="og:image" content="{{ essay.featured_image.presets.medium_large.url }}" />
+    <meta property="og:image:width" content="{{ essay.featured_image.presets.medium_large.width }}" />
+    <meta property="og:image:height" content="{{ essay.featured_image.presets.medium_large.height }}" />
+    <meta name="medium" content="article" />
+    <koken:not empty="profile.twitter">
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content="{{ essay.title truncate="70" }}" />
+      <meta name="twitter:site" content="@{{ profile.twitter }}" />
+      <meta name="twitter:creator" content="@{{ profile.twitter }}" />
+      <meta name="twitter:description" content="{{ essay.excerpt truncate="200" strip_html="true" }}" />
+      <meta name="twitter:image" content="{{ essay.featured_image.presets.medium_large.url }}" />
+    </koken:not>
+  </koken:head>
+
+
+  <div id="timeline">
+    
+    <div class="lcol">
+
+
+      <div id="wrap">
+
+        <div class="content">
+
+                <!-- Display timeline archive links -->
+                 <h3>View {{ labels.timeline.singular case="lower" }} by date</h3>
+                 <koken:dates filter:scope="month">
+                   <koken:select label="Select month" />
+                 </koken:dates>
+
+                 <!-- Display links to view all content by category -->
+                 <koken:categories>
+                   <h3>View everything by {{ labels.category.singular case="lower" }}</h3>
+                   <koken:loop>
+                     <koken:link title="View everything in {{ category.title }}">
+                       {{ category.title }} ({{ category.counts.total }})
+                     </koken:link>
+                     <br>
+                   </koken:loop>
+                 </koken:categories>
+
+                  <h3>More links</h3>
+                    <koken:navigation group="more_links" />
+
+        </div>
+
+
+      </div>
+      
+      <span class="caption">
+        
+        <koken:include file="inc/about.html" />
+          
+      </span>
+
+    </div> <!-- close lcol -->
+
+    <div class="rcol">
+
+
+      <!-- Loop over each day -->
+      <koken:loop>
+
+        
+
+        <h2>
+          <!-- Display the day (eg, January 1, 2014) -->
+          <koken:time />
+        </h2>
+      <article>
+        <!-- Render each event in each day -->
+        <koken:include file="inc/events.html" />
+
+      </article>
+
+      </koken:loop>
+
+      <!-- Display pagination links -->
+      <p>
+        <koken:include file="inc/pagination.html" />
+      </p>
+
+    
+    </div>
+  </div>
+
+  <!-- Fallback content if no data was loaded by koken:load -->
+  <koken:else>
+
+    <!-- Use koken:note to display this message in the Site editor only -->
+    <koken:note>
+      No timeline events found
+    </koken:note>
+
+  </koken:load>
+
+</div> <!-- close #content -->
+
+<koken:include file="inc/footer.html" />
